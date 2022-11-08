@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: SMART-SENSOR-SERVICE
+          uri: lb://SMART-SENSOR-SERVICE
+          predicates:
+            - Path=/sensors/** 
+        - id: THRESHOLD-SERVICE
+          uri: lb://THRESHOLD-SERVICE
+          predicates:
+            - Path=/thresholds/**
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/users/**
